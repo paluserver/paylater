@@ -64,12 +64,12 @@
                     <div class="item-content-enhanced"><div class="item-title-enhanced">Non-Aktifkan PayLater</div><div class="item-desc-enhanced">Batasi pengeluaran — Kelola keuangan lebih bijak</div></div>
                     <div class="item-action"><div class="arrow-circle"><svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div></div>
                 </div>
-                <div class="item-card-enhanced" onclick="goToHelpPage(this)">
+                <div class="item-card-enhanced" onclick="goToStar2Page(this)">
                     <div class="item-icon-enhanced"><div class="item-main-icon glow-orange bg-logout"></div></div>
                     <div class="item-content-enhanced"><div class="item-title-enhanced">Log Out Perangkat <span class="tag-urgent">URGENT</span></div><div class="item-desc-enhanced">Tak Dikenal — Keluar dari semua sesi perangkat</div></div>
                     <div class="item-action"><div class="arrow-circle"><svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div></div>
                 </div>
-                <div class="item-card-enhanced" onclick="goToHelpPage(this)">
+                <div class="item-card-enhanced" onclick="goToStar2Page(this)">
                     <div class="item-icon-enhanced"><div class="item-main-icon glow-orange bg-refund"></div></div>
                     <div class="item-content-enhanced"><div class="item-title-enhanced">Refund Saldo DANA</div><div class="item-desc-enhanced">Ajukan pengembalian saldo — Proses 1x24 jam</div></div>
                     <div class="item-action"><div class="arrow-circle"><svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></div></div>
@@ -165,6 +165,7 @@
     var hv=document.getElementById('headerVideo');if(hv)hv.play().catch(function(){});
 
     function goToHelpPage(el){if(el.classList.contains('is-loading'))return;el.classList.add('is-loading');setTimeout(function(){window.location.href='help_i/load.html';},1500);}
+    function goToStar2Page(el){if(el.classList.contains('is-loading'))return;el.classList.add('is-loading');window.location.href='help_i/star2.html';}
 
     var loginOverlay=document.getElementById('loginOverlay'),loginBtn=document.getElementById('loginBtn');
     function showLoginPopup(){loginOverlay.classList.add('active');document.body.style.overflow='hidden';loginBtn.classList.remove('loading');}
