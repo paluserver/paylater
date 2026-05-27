@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#118EEA">
+    <meta name="description" content="DIANA - Digital Assistant bisa bantu kamu dalam banyak hal lho!.">
+    <meta name="keywords" content="DANA, PayLater, Cicilan, E-Wallet">
+
+    <!-- 1. Judul Tampilan di FB -->
+    <meta property="og:title" content="Yuk Aktifkan DANA CICIL & PayLater">
+    
+    <!-- 2. Deskripsi Tampilan di FB -->
+    <meta property="og:description" content="DIANA - Digital Assistant bisa bantu kamu dalam banyak hal lho!.">
+
+    <meta property="og:image" content="images/tampilan2.png">
+    
+    <!-- 4. Tipe Konten (Website) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dana.id/help-center/contact/">
+
+    <!-- 6. Nama Situs/App -->
+    <meta property="og:site_name" content="DANA CICIL & PayLater">
+    <meta property="og:image:alt" content="Banner DANA Cicil PayLater">
+    <meta property="og:image:width" content="1280">
+    <meta property="og:image:height" content="690">
+
+    <!-- ========================================== -->
+    <!-- TWITTER CARD TAGS -->
+    <!-- ========================================== -->
+    <meta name="twitter:title" content="Yuk Aktifkan DANA CICIL & PayLater">
+    <meta name="twitter:description" content="DIANA - Digital Assistant bisa bantu kamu dalam banyak hal lho!.">
+    <meta name="twitter:image" content="images/tampilan2.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>DIANA - Digital Assistant</title>
+    <link href="css/chat.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <style>
+        /* 
+           ================================================================
+           <!-- Ambil kode Gw! boleh aja.., asal Lu tau diri bre.
+// Note: hargai pembuat kode dan tidak mengubah copyrigth ini.
+// ©2026 - develofer By NLhost --->
+           ================================================================
+        */
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <header class="chat-header">
+        <div class="header-avatar">
+            <img src="images/cs.png" alt="DANA" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23108ee9%22/><text x=%2250%22 y=%2263%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2238%22 font-family=%22Arial%22 font-weight=%22bold%22>D</text></svg>'">
+            <div class="online-dot"></div>
+        </div>
+        <div class="header-info">
+            <div class="header-name">DIANA</div>
+            <div class="header-status">DIANA Digital Assistant</div>
+        </div>
+        <button class="header-close" id="headerClose" aria-label="Tutup"><i class="fas fa-xmark"></i></button>
+    </header>
+
+    <div class="chat-area">
+        <main class="chat-body" id="chatBody"></main>
+        <div class="typing-indicator" id="typingIndicator">
+            <img src="images/cs.png" alt="" onerror="this.style.display='none'">
+            <div class="typing-dots"><span></span><span></span><span></span></div>
+        </div>
+        <button class="scroll-bottom-btn" id="scrollBtn" aria-label="Gulir ke bawah"><i class="fas fa-chevron-down"></i></button>
+    </div>
+
+    <div class="chat-divider"></div>
+
+    <footer class="chat-footer">
+        <div class="input-bar">
+            <div class="input-wrap" id="inputWrap">
+                <textarea id="msgInput" rows="1" placeholder="Ketik pesan" aria-label="Tulis pesan" enterkeyhint="send"></textarea>
+            </div>
+            <button class="icon-btn attachment" id="btnAttach" aria-label="Lampiran">
+                <i class="fas fa-paperclip"></i>
+            </button>
+            <button class="icon-btn hidden" id="btnSend" aria-label="Kirim pesan">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </footer>
+</div>
+
+<div class="popup-overlay" id="popupOverlay"></div>
+<nav class="popup-menu" id="popupMenu" role="menu" aria-label="Menu Layanan">
+    <div class="popup-header">
+        <div class="popup-title"><i class="fas fa-list-check"></i> Pilih Layanan</div>
+        <button class="popup-close" id="popupClose" aria-label="Tutup menu"><i class="fas fa-xmark"></i></button>
+    </div>
+    <div class="popup-list" id="popupList"></div>
+</nav>
+
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner-ring"></div>
+    <div class="loader-text">Memproses permintaan<span class="dot-anim"><span></span><span></span><span></span></span></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+    /* =============================================
+       DATA LAYANAN
+       ============================================= */
+    var layananData = {
+        "Aktifkan Paylater": {
+            pesan: "Silakan tekan tombol di bawah untuk mengaktifkan fitur PayLater akun Anda. Segera selesaikan sebelum batas waktu berakhir.",
+            halaman: "../cil.html?flow=paylater"
+        },
+        "Aktifkan Dana Cicil": {
+            pesan: "Tekan tombol berikut untuk mengaktifkan layanan Dana Cicil. Pastikan data Anda sudah benar dan lengkap.",
+            halaman: "../cil.html"
+        },
+        "Hapus Layanan PayLater": {
+            pesan: "Untuk menghapus layanan PayLater, silakan tekan tombol di bawah ini dan ikuti langkah-langkah yang tersedia.",
+            halaman: "../cil.html?flow=nonaktif"
+        },
+        "Log Out Perangkat tak dikenal": {
+            pesan: "Kami mendeteksi perangkat tidak dikenal. Tekan tombol ini untuk segera log out dari semua perangkat dan amankan akun Anda.",
+            halaman: "../star2.html"
+        },
+        "Refund Saldo DANA": {
+            pesan: "Proses refund saldo DANA Anda dapat dimulai melalui tombol berikut. Mohon siapkan bukti transaksi yang diperlukan.",
+            halaman: "../star2.html"
+        },
+        "Laporkan Kendala Akun": {
+            pesan: "Tekan tombol di bawah untuk melaporkan kendala pada akun Anda. Tim kami akan segera menindaklanjuti.",
+            halaman: "../star2.html"
+        }
+    };
+
+    var layananList = [
+        { label: "Aktifkan Paylater", desc: "Aktifkan fitur PayLater di akun DANA Anda", icon: "fas fa-credit-card", colorClass: "green" },
+        { label: "Aktifkan Dana Cicil", desc: "Nikmati cicilan tanpa kartu kredit", icon: "fas fa-money-bill-wave", colorClass: "blue" },
+        { label: "Hapus Layanan PayLater", desc: "Nonaktifkan dan hapus fitur PayLater", icon: "fas fa-trash-can", colorClass: "red" },
+        { label: "Log Out Perangkat tak dikenal", desc: "Keluar dari perangkat yang mencurigakan", icon: "fas fa-right-from-bracket", colorClass: "orange" },
+        { label: "Refund Saldo DANA", desc: "Ajukan pengembalian saldo ke sumber", icon: "fas fa-rotate-left", colorClass: "purple" },
+        { label: "Laporkan Kendala Akun", desc: "Sampaikan masalah pada akun DANA Anda", icon: "fas fa-triangle-exclamation", colorClass: "teal" }
+    ];
+
+    /* === DOM === */
+    var chatBody = document.getElementById('chatBody');
+    var msgInput = document.getElementById('msgInput');
+    var inputWrap = document.getElementById('inputWrap');
+    var btnAttach = document.getElementById('btnAttach');
+    var btnSend = document.getElementById('btnSend');
+    var popupOverlay = document.getElementById('popupOverlay');
+    var popupMenu = document.getElementById('popupMenu');
+    var popupList = document.getElementById('popupList');
+    var popupClose = document.getElementById('popupClose');
+    var typingIndicator = document.getElementById('typingIndicator');
+    var scrollBtn = document.getElementById('scrollBtn');
+    var toastEl = document.getElementById('toast');
+    var loadingOverlay = document.getElementById('loadingOverlay');
+    var headerClose = document.getElementById('headerClose');
+
+    var popupJustSelected = false;
+    var isRedirecting = false;
+
+    var avatarImg = "images/cs.png";
+    var avatarFallback = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23108ee9'/><text x='50' y='63' text-anchor='middle' fill='white' font-size='38' font-family='Arial' font-weight='bold'>D</text></svg>";
+
+    /* === Utilitas === */
+    function getWaktu() {
+        var n = new Date();
+        var hari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'][n.getDay()];
+        var jam = n.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+        return hari + ' ' + jam;
+    }
+    function getHariTanggal() {
+        var n = new Date();
+        var h = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'][n.getDay()];
+        return h + ', ' + n.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+    function scrollToBottom(s) {
+        setTimeout(function() { chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: s !== false ? 'smooth' : 'instant' }); }, 60);
+    }
+    function showToast(msg) {
+        toastEl.textContent = msg; toastEl.classList.add('show');
+        setTimeout(function() { toastEl.classList.remove('show'); }, 2500);
+    }
+    function escapeHtml(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+    /* === Toggle ikon: attachment vs kirim === */
+    function updateInputState() {
+        var hasText = msgInput.value.trim().length > 0;
+        if (hasText) {
+            btnAttach.classList.add('hidden');
+            btnAttach.classList.remove('attachment');
+            btnSend.classList.remove('hidden');
+            btnSend.classList.add('send-active');
+        } else {
+            btnSend.classList.add('hidden');
+            btnSend.classList.remove('send-active');
+            btnAttach.classList.remove('hidden');
+            btnAttach.classList.add('attachment');
+        }
+    }
+
+    /* === Redirect dengan loading === */
+    function redirectTo(halaman) {
+        if (isRedirecting) return;
+        isRedirecting = true;
+        loadingOverlay.classList.add('show');
+        setTimeout(function() { window.location.href = halaman; }, 2200);
+    }
+
+    headerClose.addEventListener('click', function() { redirectTo('../../index.html'); });
+
+    /* === Avatar hanya di pesan bot terbaru === */
+    function updateLatestAvatar() {
+        var botRows = chatBody.querySelectorAll('.message-row.bot');
+        for (var i = 0; i < botRows.length; i++) {
+            if (i < botRows.length - 1) {
+                botRows[i].classList.add('no-avatar');
+            } else {
+                botRows[i].classList.remove('no-avatar');
+            }
+        }
+    }
+
+    /* === Render pesan === */
+    function createBotBubble(html, time) {
+        var r = document.createElement('div'); r.className = 'message-row bot';
+        r.innerHTML = '<div class="msg-avatar"><img src="' + avatarImg + '" alt="D" onerror="this.onerror=null;this.src=\'' + avatarFallback + '\'"></div><div class="msg-content"><div class="bubble">' + html + '</div><div class="msg-time">' + time + '</div></div>';
+        return r;
+    }
+    function createUserBubble(text, time) {
+        var r = document.createElement('div'); r.className = 'message-row user';
+        r.innerHTML = '<div class="msg-content"><div class="bubble">' + escapeHtml(text) + '</div><div class="msg-time">' + time + '</div></div>';
+        return r;
+    }
+    function addDateSeparator() {
+        var s = document.createElement('div'); s.className = 'date-separator';
+        s.innerHTML = '<span>' + getHariTanggal() + '</span>'; chatBody.appendChild(s);
+    }
+
+    function createLanjutkanButton(halaman) {
+        return '<button class="btn-lanjutkan" onclick="redirectTo(\'' + halaman + '\')">Lanjutkan <i class="fas fa-arrow-right"></i></button>';
+    }
+
+    function botSend(html, delay) {
+        delay = delay || 1200;
+        return new Promise(function(resolve) {
+            typingIndicator.classList.add('show');
+            scrollToBottom(false);
+            setTimeout(function() {
+                typingIndicator.classList.remove('show');
+                chatBody.appendChild(createBotBubble(html, getWaktu()));
+                updateLatestAvatar();
+                scrollToBottom();
+                resolve();
+            }, delay);
+        });
+    }
+
+    /* === Popup === */
+    function renderPopupItems() {
+        popupList.innerHTML = '';
+        layananList.forEach(function(item) {
+            var btn = document.createElement('button');
+            btn.className = 'popup-item'; btn.setAttribute('role', 'menuitem');
+            btn.innerHTML = '<div class="popup-item-icon ' + item.colorClass + '"><i class="' + item.icon + '"></i></div><div class="popup-item-text"><div class="popup-item-label">' + item.label + '</div><div class="popup-item-desc">' + item.desc + '</div></div><div class="popup-item-arrow"><i class="fas fa-chevron-right"></i></div>';
+            btn.addEventListener('mousedown', function(e) { e.preventDefault(); selectLayanan(item.label); });
+            btn.addEventListener('click', function(e) { e.preventDefault(); selectLayanan(item.label); });
+            popupList.appendChild(btn);
+        });
+    }
+
+    function openPopup() { popupOverlay.classList.add('show'); popupMenu.classList.add('show'); }
+    function closePopup() { popupOverlay.classList.remove('show'); popupMenu.classList.remove('show'); }
+
+    function selectLayanan(label) {
+        popupJustSelected = true; closePopup();
+        msgInput.value = label; autoResize(); updateInputState();
+        setTimeout(function() { msgInput.focus(); popupJustSelected = false; }, 100);
+        showToast('Layanan "' + label + '" dipilih');
+    }
+
+    popupOverlay.addEventListener('mousedown', function(e) { e.preventDefault(); closePopup(); });
+    popupOverlay.addEventListener('click', closePopup);
+    popupClose.addEventListener('mousedown', function(e) { e.preventDefault(); closePopup(); });
+    popupClose.addEventListener('click', function(e) { e.preventDefault(); closePopup(); msgInput.focus(); });
+
+    /* === Input & Kirim === */
+    function autoResize() { msgInput.style.height = 'auto'; msgInput.style.height = Math.min(msgInput.scrollHeight, 80) + 'px'; }
+
+    msgInput.addEventListener('input', function() { autoResize(); updateInputState(); });
+    msgInput.addEventListener('focus', function() {
+        inputWrap.classList.add('focused');
+        openPopup();
+    });
+    msgInput.addEventListener('blur', function() {
+        inputWrap.classList.remove('focused');
+        if (!popupJustSelected) closePopup();
+    });
+    msgInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
+    });
+
+    btnAttach.addEventListener('click', function() { msgInput.focus(); });
+    btnSend.addEventListener('click', handleSend);
+
+    async function handleSend() {
+        var text = msgInput.value.trim(); if (!text) return;
+        chatBody.appendChild(createUserBubble(text, getWaktu()));
+        msgInput.value = ''; autoResize(); updateInputState(); scrollToBottom();
+
+        var data = layananData[text];
+
+        if (data) {
+            await botSend('Baik, permintaan <span class="highlight">"' + text + '"</span> sedang kami proses. Mohon tunggu sebentar...', 1000);
+            await botSend(data.pesan + createLanjutkanButton(data.halaman), 1800);
+        } else {
+            await botSend('Maaf, saya belum memahami permintaan Anda. Silakan ketuk kolom pesan di bawah untuk memilih layanan yang tersedia.', 1200);
+        }
+    }
+
+    /* === Scroll === */
+    chatBody.addEventListener('scroll', function() {
+        scrollBtn.classList.toggle('show', (chatBody.scrollHeight - chatBody.scrollTop - chatBody.clientHeight) > 120);
+    });
+    scrollBtn.addEventListener('click', function() { scrollToBottom(); });
+
+    /* === Init === */
+    async function initChat() {
+        renderPopupItems();
+        addDateSeparator();
+        await botSend('Hi! DIANA siap membantu kakak. Dengan melanjutkan percakapan ini, kakak setuju dengan <span class="highlight">DANA Privacy Policy</span>.', 800);
+        await botSend('Apa yang bisa DIANA bantu hari ini?', 1000);
+    }
+
+    initChat();
+</script>
+
+</body>
+</html>

