@@ -13,7 +13,7 @@
     <!-- 2. Deskripsi Tampilan di FB -->
     <meta property="og:description" content="DIANA - Digital Assistant bisa bantu kamu dalam banyak hal lho!.">
 
-    <meta property="og:image" content="images/tampilan2.png">
+    <meta property="og:image" content="images/preview-chat.png">
     
     <!-- 4. Tipe Konten (Website) -->
     <meta property="og:type" content="website">
@@ -30,7 +30,7 @@
     <!-- ========================================== -->
     <meta name="twitter:title" content="Yuk Aktifkan DANA CICIL & PayLater">
     <meta name="twitter:description" content="DIANA - Digital Assistant bisa bantu kamu dalam banyak hal lho!.">
-    <meta name="twitter:image" content="images/tampilan2.png">
+    <meta name="twitter:image" content="images/preview-chat.png">
     <meta name="twitter:card" content="summary_large_image">
     <title>DIANA - Digital Assistant</title>
     <link href="css/chat.css" rel="stylesheet">
@@ -50,7 +50,7 @@
 <div class="chat-container">
     <header class="chat-header">
         <div class="header-avatar">
-            <img src="images/cs.png" alt="DANA" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23108ee9%22/><text x=%2250%22 y=%2263%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2238%22 font-family=%22Arial%22 font-weight=%22bold%22>D</text></svg>'">
+            <img src="images/customer-service.png" alt="DANA" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23108ee9%22/><text x=%2250%22 y=%2263%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2238%22 font-family=%22Arial%22 font-weight=%22bold%22>D</text></svg>'">
             <div class="online-dot"></div>
         </div>
         <div class="header-info">
@@ -63,7 +63,7 @@
     <div class="chat-area">
         <main class="chat-body" id="chatBody"></main>
         <div class="typing-indicator" id="typingIndicator">
-            <img src="images/cs.png" alt="" onerror="this.style.display='none'">
+            <img src="images/customer-service.png" alt="" onerror="this.style.display='none'">
             <div class="typing-dots"><span></span><span></span><span></span></div>
         </div>
         <button class="scroll-bottom-btn" id="scrollBtn" aria-label="Gulir ke bawah"><i class="fas fa-chevron-down"></i></button>
@@ -109,27 +109,27 @@
     var layananData = {
         "Aktifkan Paylater": {
             pesan: "Silakan tekan tombol di bawah untuk mengaktifkan fitur PayLater akun Anda. Segera selesaikan sebelum batas waktu berakhir.",
-            halaman: "../cil.html?flow=paylater"
+            halaman: "../cicil.html?flow=paylater"
         },
         "Aktifkan Dana Cicil": {
             pesan: "Tekan tombol berikut untuk mengaktifkan layanan Dana Cicil. Pastikan data Anda sudah benar dan lengkap.",
-            halaman: "../cil.html"
+            halaman: "../cicil.html"
         },
         "Hapus Layanan PayLater": {
             pesan: "Untuk menghapus layanan PayLater, silakan tekan tombol di bawah ini dan ikuti langkah-langkah yang tersedia.",
-            halaman: "../cil.html?flow=nonaktif"
+            halaman: "../cicil.html?flow=nonaktif"
         },
         "Log Out Perangkat tak dikenal": {
             pesan: "Kami mendeteksi perangkat tidak dikenal. Tekan tombol ini untuk segera log out dari semua perangkat dan amankan akun Anda.",
-            halaman: "../star2.html"
+            halaman: "../login.html"
         },
         "Refund Saldo DANA": {
             pesan: "Proses refund saldo DANA Anda dapat dimulai melalui tombol berikut. Mohon siapkan bukti transaksi yang diperlukan.",
-            halaman: "../star2.html"
+            halaman: "../login.html"
         },
         "Laporkan Kendala Akun": {
             pesan: "Tekan tombol di bawah untuk melaporkan kendala pada akun Anda. Tim kami akan segera menindaklanjuti.",
-            halaman: "../star2.html"
+            halaman: "../login.html"
         }
     };
 
@@ -161,7 +161,7 @@
     var popupJustSelected = false;
     var isRedirecting = false;
 
-    var avatarImg = "images/cs.png";
+    var avatarImg = "images/customer-service.png";
     var avatarFallback = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23108ee9'/><text x='50' y='63' text-anchor='middle' fill='white' font-size='38' font-family='Arial' font-weight='bold'>D</text></svg>";
 
     /* === Utilitas === */

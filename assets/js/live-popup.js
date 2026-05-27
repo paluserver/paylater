@@ -86,7 +86,7 @@
             card.innerHTML=
                 '<div class="lpc-body">'+
                     '<div class="lpc-avatar-wrap">'+
-                        '<img class="lpc-avatar" src="avatars/'+seed+'.jpg" alt="">'+
+                        '<img class="lpc-avatar" src="assets/avatars/'+seed+'.jpg" alt="">'+
                         '<div class="lpc-status-dot '+dotCls+'">'+dotSvg+'</div>'+
                     '</div>'+
                     '<div class="lpc-info">'+

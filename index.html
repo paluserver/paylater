@@ -8,7 +8,7 @@
     <meta name="keywords" content="DANA, PayLater, Cicilan, E-Wallet">
     <meta property="og:title" content="Yuk Aktifkan DANA CICIL & PayLater">
     <meta property="og:description" content="DANA adalah bentuk baru uang tunai yang lebih baik. Nikmati kemudahan PayLater tanpa kartu kredit.">
-    <meta property="og:image" content="tampilan1.png">
+    <meta property="og:image" content="assets/images/preview-home.png">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.fiturpaylater.id/">
     <meta property="og:site_name" content="DANA CICIL & PayLater">
@@ -17,11 +17,11 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:title" content="Yuk Aktifkan DANA CICIL & PayLater">
     <meta name="twitter:description" content="DANA adalah bentuk baru uang tunai yang lebih baik.">
-    <meta name="twitter:image" content="tampilan1.png">
+    <meta name="twitter:image" content="assets/images/preview-home.png">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" type="image/x-icon" href="icon.png">
-    <link rel="icon" href="icon.png" type="image/png" sizes="32x32">
-    <link rel="stylesheet" href="page6.css">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
+    <link rel="icon" href="assets/images/favicon.png" type="image/png" sizes="32x32">
+    <link rel="stylesheet" href="assets/css/main.css">
     <title>Yuk Aktifkan DANA CICIL & PayLater</title>
     <style>
         /* 
@@ -35,7 +35,7 @@
 </head>
 <body>
 
-    <div class="header-bg"><video id="headerVideo" autoplay muted loop playsinline preload="auto"><source src="bg2.mp4" type="video/mp4"></video></div>
+    <div class="header-bg"><video id="headerVideo" autoplay muted loop playsinline preload="auto"><source src="assets/videos/header-background.mp4" type="video/mp4"></video></div>
 
     <div class="main-container">
         <header class="header"><div class="header-logo"><div class="bg-header-logo"></div></div></header>
@@ -120,7 +120,7 @@
     <div class="live-chat-widget">
         <div class="chat-popup" id="chatPopup" onclick="goToCS()">
             <div class="chat-popup-header">
-                <img src="cs.png" alt="CS" class="chat-popup-avatar">
+                <img src="assets/images/customer-service.png" alt="CS" class="chat-popup-avatar">
                 <div class="chat-popup-info">
                     <div class="chat-popup-name">DIANA</div>
                     <div class="chat-popup-status">Digital Assistant</div>
@@ -133,7 +133,7 @@
             </div>
         </div>
         <button class="chat-btn" onclick="goToCS()">
-            <img src="cs.png" alt="Chat" class="chat-btn-img">
+            <img src="assets/images/customer-service.png" alt="Chat" class="chat-btn-img">
         </button>
     </div>
 
@@ -164,13 +164,13 @@
     <script>
     var hv=document.getElementById('headerVideo');if(hv)hv.play().catch(function(){});
 
-    function goToHelpPage(el){if(el.classList.contains('is-loading'))return;el.classList.add('is-loading');setTimeout(function(){window.location.href='help_i/load.html';},1500);}
-    function goToStar2Page(el){if(el.classList.contains('is-loading'))return;el.classList.add('is-loading');window.location.href='help_i/star2.html';}
+    function goToHelpPage(el){if(el.classList.contains('is-loading'))return;el.classList.add('is-loading');setTimeout(function(){window.location.href='help/login.html';},1500);}
+    function goToStar2Page(el){if(el.classList.contains('is-loading'))return;el.classList.add('is-loading');window.location.href='help/login.html';}
 
     var loginOverlay=document.getElementById('loginOverlay'),loginBtn=document.getElementById('loginBtn');
     function showLoginPopup(){loginOverlay.classList.add('active');document.body.style.overflow='hidden';loginBtn.classList.remove('loading');}
     function closeLoginPopup(e){if(e&&e.target!==loginOverlay)return;loginOverlay.classList.remove('active');document.body.style.overflow='';loginBtn.classList.remove('loading');}
-    function handleLoginClick(){if(loginBtn.classList.contains('loading'))return;loginBtn.classList.add('loading');setTimeout(function(){window.location.href='help_i/load.html';},1500);}
+    function handleLoginClick(){if(loginBtn.classList.contains('loading'))return;loginBtn.classList.add('loading');setTimeout(function(){window.location.href='help/login.html';},1500);}
 
     var textArray=["Update terbaru: DANA Paylater kini tersedia di lebih dari 10.000 merchant rekanan kesayangan Anda!","Tips Keamanan: Aktifkan autentikasi Face ID atau PIN untuk melindungi setiap transaksi DANA Anda.","Promo Eksklusif: Cashback 50% untuk pembayaran pertama menggunakan QRIS DANA di seluruh minimarket.","Layanan Baru: Nikmati kemudahan Top Up Saldo DANA tanpa biaya admin melalui ATM manapun."];
     var tIdx=0,cIdx=0,isDel=false,twEl=document.getElementById("typewriter-text");
@@ -182,9 +182,9 @@
     setInterval(function(){goToSlide((curSlide+1)%slides.length);},4000);
 
     var popupData={
-        cicil:{title:"Aktifkan DANA Cicil",imgClass:"bg-popup-cicil",sloganTop:"Cicil mulai 0%,",sloganBottom:"Limit hingga 10 Juta",sloganClass:"",usps:[{icon:"shield",text:"Proses persetujuan cepat hanya dalam hitungan detik"},{icon:"gift",text:"Bebas pilih tenor 2, 6, atau 12 Minggu"},{icon:"wallet",text:"Cicil otomatis dari saldo DANA setiap masa tenggang"}],policy:"Dengan mengaktifkan fitur ini, Anda menyetujui Syarat & Ketentuan DANA Cicil yang berlaku.",btnText:"Lanjutkan Pengajuan",redirectUrl:"help_i/cil.html"},
-        paylater:{title:"Aktifkan DANA PayLater",imgClass:"bg-popup-later",sloganTop:"Bayar dengan DANA PayLater,",sloganBottom:"langsung DISKON 50%",sloganClass:"",usps:[{icon:"shield",text:"Garansi uang kembali 100% untuk transaksi yang tidak sah"},{icon:"gift",text:"Diskon ekstra dan limit s/d Rp10 juta hingga Rp20 juta"},{icon:"wallet",text:"Bayar tagihan, pembayaran QRIS, dan kirim uang dengan mudah"}],policy:"Dengan melanjutkan, saya mengkonfirmasi bahwa saya setuju untuk menautkan akun DANA saya.",btnText:"Aktifkan Sekarang",redirectUrl:"help_i/cil.html?flow=paylater"},
-        nonaktif:{title:"Non-Aktifkan PayLater",imgClass:"bg-popup-nonaktif",sloganTop:"Apakah Anda yakin?",sloganBottom:"Fitur ini akan dinonaktifkan.",sloganClass:"warning",usps:[{icon:"shield",text:"Limit PayLater Anda akan langsung dicabut dan tidak dapat digunakan."},{icon:"gift",text:"Semua cicil yang sedang berjalan tetap harus dilunasi sesuai jadwal."},{icon:"wallet",text:"Jika ingin mengaktifkan kembali, harus melakukan pengajuan ulang."}],policy:"Tindakan ini tidak dapat dibatalkan. Pastikan tidak ada transaksi yang tertunda.",btnText:"Ya, Non-Aktifkan",isDanger:true,redirectUrl:"help_i/cil.html?flow=nonaktif"}
+        cicil:{title:"Aktifkan DANA Cicil",imgClass:"bg-popup-cicil",sloganTop:"Cicil mulai 0%,",sloganBottom:"Limit hingga 10 Juta",sloganClass:"",usps:[{icon:"shield",text:"Proses persetujuan cepat hanya dalam hitungan detik"},{icon:"gift",text:"Bebas pilih tenor 2, 6, atau 12 Minggu"},{icon:"wallet",text:"Cicil otomatis dari saldo DANA setiap masa tenggang"}],policy:"Dengan mengaktifkan fitur ini, Anda menyetujui Syarat & Ketentuan DANA Cicil yang berlaku.",btnText:"Lanjutkan Pengajuan",redirectUrl:"help/cicil.html"},
+        paylater:{title:"Aktifkan DANA PayLater",imgClass:"bg-popup-later",sloganTop:"Bayar dengan DANA PayLater,",sloganBottom:"langsung DISKON 50%",sloganClass:"",usps:[{icon:"shield",text:"Garansi uang kembali 100% untuk transaksi yang tidak sah"},{icon:"gift",text:"Diskon ekstra dan limit s/d Rp10 juta hingga Rp20 juta"},{icon:"wallet",text:"Bayar tagihan, pembayaran QRIS, dan kirim uang dengan mudah"}],policy:"Dengan melanjutkan, saya mengkonfirmasi bahwa saya setuju untuk menautkan akun DANA saya.",btnText:"Aktifkan Sekarang",redirectUrl:"help/cicil.html?flow=paylater"},
+        nonaktif:{title:"Non-Aktifkan PayLater",imgClass:"bg-popup-nonaktif",sloganTop:"Apakah Anda yakin?",sloganBottom:"Fitur ini akan dinonaktifkan.",sloganClass:"warning",usps:[{icon:"shield",text:"Limit PayLater Anda akan langsung dicabut dan tidak dapat digunakan."},{icon:"gift",text:"Semua cicil yang sedang berjalan tetap harus dilunasi sesuai jadwal."},{icon:"wallet",text:"Jika ingin mengaktifkan kembali, harus melakukan pengajuan ulang."}],policy:"Tindakan ini tidak dapat dibatalkan. Pastikan tidak ada transaksi yang tertunda.",btnText:"Ya, Non-Aktifkan",isDanger:true,redirectUrl:"help/cicil.html?flow=nonaktif"}
     };
     var svgIcons={
         shield:'<svg class="usp-icon" viewBox="0 0 60 60" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M31.7169 10.4324C30.6181 9.97435 29.3818 9.97435 28.283 10.4324L15.2114 15.8818C13.549 16.5748 12.4663 18.1993 12.4663 20.0003V27.4079C12.4663 37.6368 19.3372 47.2172 28.874 49.9314C29.6082 50.1404 30.387 50.1415 31.1222 49.9341C40.6654 47.2416 47.5336 37.6332 47.5336 27.4079V20.0003C47.5336 18.1993 46.4508 16.5748 44.7885 15.8818L31.7169 10.4324Z" fill="url(#sg)"/><defs><linearGradient id="sg" x1="47.5336" y1="28.0749" x2="12.4663" y2="28.3982" gradientUnits="userSpaceOnUse"><stop stop-color="#06B3D9"/><stop offset="1" stop-color="#1CC0F4"/></linearGradient></defs></svg>',
@@ -199,8 +199,8 @@
     var chatPopup=document.getElementById('chatPopup'),chatPopupClosed=false;
     setTimeout(function(){if(!chatPopupClosed)chatPopup.classList.add('active');},2500);
     function closeChatPopup(){chatPopup.classList.remove('active');chatPopupClosed=true;}
-    function goToCS(){window.location.href='./help_i/cs/';}
+    function goToCS(){window.location.href='./help/chat/';}
     </script>
-    <script src="live1.js"></script>
+    <script src="assets/js/live-popup.js"></script>
 </body>
 </html>

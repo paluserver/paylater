@@ -106,7 +106,7 @@
         .login-overlay.active { opacity: 1; visibility: visible; }
         .login-popup { background-color: #fff; border-radius: 20px; width: 100%; max-width: 340px; padding: 32px 24px 24px; text-align: center; transform: scale(0.85) translateY(20px); transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1); box-shadow: 0 20px 60px rgba(0,0,0,0.15); position: relative; overflow: hidden; }
         .login-overlay.active .login-popup { transform: scale(1) translateY(0); }
-        .login-popup.bg-login-only { background-color: transparent; background-repeat: no-repeat; background-position: center; background-size: 100% 100%; padding: 0; width: 320px; height: 480px; background-image: url('./popuplogin.png'); }
+        .login-popup.bg-login-only { background-color: transparent; background-repeat: no-repeat; background-position: center; background-size: 100% 100%; padding: 0; width: 320px; height: 480px; background-image: url('../images/popup-login.png'); }
         .login-popup.bg-login-only .login-popup-icon, .login-popup.bg-login-only .login-popup-title, .login-popup.bg-login-only .login-popup-desc { display: none; }
         .login-popup.bg-login-only .login-popup-close { background: rgba(0,0,0,0.2); top: 15px; right: 15px; width: 32px; height: 32px; z-index: 10; }
         .login-popup.bg-login-only .login-popup-close svg { fill: #fff; }
@@ -275,32 +275,32 @@
         .chat-btn::after { animation-delay: 1.25s; }
         @keyframes chatRipple { 0% { transform: translate(-50%,-50%) scale(1); opacity: 0.6; } 100% { transform: translate(-50%,-50%) scale(2.2); opacity: 0; } }
 
-        .bg-header-logo { width: 100px; height: 28px; background-image: url('./logo1.png'); background-size: contain; background-repeat: no-repeat; background-position: center; filter: brightness(0) invert(1) drop-shadow(0 1px 3px rgba(0,0,0,0.5)); }
+        .bg-header-logo { width: 100px; height: 28px; background-image: url('../images/logo.png'); background-size: contain; background-repeat: no-repeat; background-position: center; filter: brightness(0) invert(1) drop-shadow(0 1px 3px rgba(0,0,0,0.5)); }
         .item-main-icon { width: 80%; height: 80%; background-size: contain; background-repeat: no-repeat; background-position: center; animation: item-pulse-animation 3s ease-in-out infinite; transition: all 0.3s ease; }
-        .bg-cicil { background-image: url('./cicil.png'); }
-        .bg-paylater { background-image: url('./later1.png'); }
-        .bg-nonaktif { background-image: url('./hapus1.png'); }
-        .bg-logout { background-image: url('./logout.png'); }
-        .bg-refund { background-image: url('./refund1.png'); }
+        .bg-cicil { background-image: url('../images/dana-cicil.png'); }
+        .bg-paylater { background-image: url('../images/paylater.png'); }
+        .bg-nonaktif { background-image: url('../images/disable-paylater.png'); }
+        .bg-logout { background-image: url('../images/logout.png'); }
+        .bg-refund { background-image: url('../images/refund.png'); }
         .icon-badge { background-size: contain; background-repeat: no-repeat; background-position: center; }
-        .bg-badge-populer { background-image: url('./populer.png'); }
-        .bg-badge-promo { background-image: url('./promo.png'); }
+        .bg-badge-populer { background-image: url('../images/badge-popular.png'); }
+        .bg-badge-promo { background-image: url('../images/badge-promo.png'); }
         .banner-slide { background-size: cover; background-repeat: no-repeat; background-position: center; transform: scale(1); transition: transform 5s linear; }
         .banner-slide.active { transform: scale(1.15); }
-        .banner-slide:nth-child(1) { background-image: url('./b1.png'); }
-        .banner-slide:nth-child(2) { background-image: url('./b2.png'); }
-        .banner-slide:nth-child(3) { background-image: url('./b3.png'); }
+        .banner-slide:nth-child(1) { background-image: url('../images/banner-1.png'); }
+        .banner-slide:nth-child(2) { background-image: url('../images/banner-2.png'); }
+        .banner-slide:nth-child(3) { background-image: url('../images/banner-3.png'); }
         .nav-icon-img { width: 100%; height: 100%; background-size: contain; background-repeat: no-repeat; background-position: center; }
-        .bg-nav-beranda { background-image: url('./beranda.png'); }
-        .bg-nav-aktivitas { background-image: url('./aktivitas.png'); }
-        .bg-nav-dompet { background-image: url('./dompet.png'); }
-        .bg-nav-saya { background-image: url('./saya.png'); }
-        .bg-btn-pay { width: 100%; height: 100%; background-image: url('./pay.png'); background-size: contain; background-repeat: no-repeat; background-position: center; }
+        .bg-nav-beranda { background-image: url('../images/nav-home.png'); }
+        .bg-nav-aktivitas { background-image: url('../images/nav-activity.png'); }
+        .bg-nav-dompet { background-image: url('../images/nav-wallet.png'); }
+        .bg-nav-saya { background-image: url('../images/nav-profile.png'); }
+        .bg-btn-pay { width: 100%; height: 100%; background-image: url('../images/pay-button.png'); background-size: contain; background-repeat: no-repeat; background-position: center; }
         .popup-hero-img { width: 100%; height: 100%; position: absolute; top: 0; left: 0; background-size: cover; background-position: center; background-repeat: no-repeat; }
-        .bg-popup-cicil { background-image: url('./popupcicil.png'); }
-        .bg-popup-later { background-image: url('./popuplater1.png'); }
-        .bg-popup-nonaktif { background-image: url('./popuphapus1.png'); }
-        .popup-logo-img { width: 140px; height: auto; background-image: url('./aa73e51d16f99d6e64587cf2314bf40a-452-73.png_400x400q80.png_.webp'); background-size: contain; background-repeat: no-repeat; background-position: center; aspect-ratio: 452/73; }
+        .bg-popup-cicil { background-image: url('../images/popup-cicil.png'); }
+        .bg-popup-later { background-image: url('../images/popup-paylater.png'); }
+        .bg-popup-nonaktif { background-image: url('../images/popup-disable-paylater.png'); }
+        .popup-logo-img { width: 140px; height: auto; background-image: url('../images/dana-logo-wide.webp'); background-size: contain; background-repeat: no-repeat; background-position: center; aspect-ratio: 452/73; }
 
         @media (min-width: 480px) {
             .bottom-nav { max-width: 480px; left: 50%; transform: translateX(-50%); border-radius: 20px 20px 0 0; border-left: 1px solid #f0f0f0; border-right: 1px solid #f0f0f0; }
